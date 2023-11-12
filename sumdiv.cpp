@@ -4,13 +4,8 @@
 #define ll long long
 using namespace std;
 
-int main(){
-    f();
-    long n;
-    cin >> n;
-    while (n-- > 0)
-    {
-        ll x;
+void solve(){
+    ll x;
         cin >> x;
         if (x == 1)
             cout << 1 << endl;
@@ -27,6 +22,15 @@ int main(){
             cout << s;
             cout << endl;
         }
+}
+
+int main(){
+    f();
+    long n;
+    cin >> n;
+    while (n--)
+    {
+        solve();
     }
     return 0;
 }
