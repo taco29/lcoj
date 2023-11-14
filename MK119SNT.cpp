@@ -10,34 +10,30 @@ using namespace std;
 vector<bool> check(int n){
    vector<bool> prime(n + 1, true);
    prime[0] = prime[1] = false;
-   for(int i = 2; i <= sqrt(n); i++){
+   for(int i = 2; i * i <= n; i++){
         if(prime[i] == true){
-            for(int j = i*i; j <= n; j+=p){
-                prime[i] = false;
+            for(int j = i * i; j <= n; j += (i > 2 ? 2 * i : i)){
+                prime[j] = false;
             }
-        } 
+        }
    }
     return prime;
 }
-
-void solve(){
-    int count = 0;
-    ll  L, R;
-    cin >> L >> R;
-    vector<bool> prime = check(R);
-    for(int i = L; i <= R; i++){
-        if(prime[i]){
-            count++;
-        }
-    }
-    cout << count << enl;
-}
-
 int main(){
     int t;
     cin >> t;
+    ll L, R;
+    cin >> L >> R;
+    vector<bool> prime = check(R);
     while(t--){
-        solve();
+        int count = 0;
+        for(int i = L; i <= R; i++){
+            if(prime[i]){
+                count++;
+            }
+        }
+        cout << count << enl;
     }
     return 0;
 }
+//!solved
