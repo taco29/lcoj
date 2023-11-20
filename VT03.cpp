@@ -8,26 +8,21 @@
 #define enl "\n"
 using namespace std;
 
-bool check(int n){
-    if(n % 2 !=0){
-        return true;
+int main(){
+    long n;
+    cin >> n;
+    long a[n];
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
     }
-    return false;
-}
-
-void solve(){
-    ll l, r, sum = 0;
-    cin >> l >> r;
-    for(int i = l; i <= r; i++){
-        if(check(i)){
-            sum+=i;
+    int maxx = a[1];
+    int index = 0;
+    for(int i = 0; i < n; i++){
+        if(a[i] >= maxx){
+            maxx = a[i];
+            index = i;
         }
     }
-    cout << sum;
-}
-
-int main(){
-    f();
-    solve();
+    cout << index;
     return 0;
 }

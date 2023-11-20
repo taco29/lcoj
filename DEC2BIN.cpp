@@ -8,26 +8,22 @@
 #define enl "\n"
 using namespace std;
 
-bool check(int n){
-    if(n % 2 !=0){
-        return true;
-    }
-    return false;
-}
-
-void solve(){
-    ll l, r, sum = 0;
-    cin >> l >> r;
-    for(int i = l; i <= r; i++){
-        if(check(i)){
-            sum+=i;
-        }
-    }
-    cout << sum;
-}
-
 int main(){
-    f();
-    solve();
+    long t;
+    cin >> t;
+    while(t--){
+        ll n;
+        cin >> n;
+        string s = "";
+        while(n != 0){
+            if( n % 2 == 0){
+                s = '0' + s;
+            }else{
+                s = '1' + s;
+            }
+            n /= 2;
+        }
+        cout << n << enl;
+    }
     return 0;
 }
