@@ -1,3 +1,4 @@
+//i miss her
 #include <bits/stdc++.h>
 #define f() {ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);}
 #define ll long long
@@ -7,33 +8,30 @@
 #define enl "\n"
 using namespace std;
 
-vector<bool> check(int n){
-   vector<bool> prime(n + 1, true);
-   prime[0] = prime[1] = false;
-   for(int i = 2; i * i <= n; i++){
-        if(prime[i] == true){
-            for(int j = i * i; j <= n; j += (i > 2 ? 2 * i : i)){
-                prime[j] = false;
-            }
+bool sieve(int n) {
+    vector<bool> prime(n+1, true);
+    prime[0] = prime[1] = false;
+    for (int p = 2; p*p <= n; p++) {
+        if (prime[p] == true) {
+            for (int i = p*p; i <= n; i += p)
+                prime[i] = false;
         }
-   }
-    return prime;
+    }
 }
-int main(){
-    int t;
+
+int main() {
+    int t, count = 0;
     cin >> t;
-    ll L, R;
-    cin >> L >> R;
-    vector<bool> prime = check(R);
     while(t--){
-        int count = 0;
-        for(int i = L; i <= R; i++){
-            if(prime[i]){
+        long l, r;
+        cin >> l >> r;
+        for(int i = l; i <= r; i++){
+            if(sieve(i)){
                 count++;
             }
         }
-        cout << count << enl;
     }
+    cout << count;
     return 0;
 }
-//!solve
+//!solved
