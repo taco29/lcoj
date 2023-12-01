@@ -23,3 +23,4 @@ int main() {
     cout << sum<<enl;
     return 0;
 }
+//!solved
